@@ -2,6 +2,7 @@ package com.finance.api.controller;
 
 import com.finance.api.model.Transaction;
 import com.finance.api.service.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class TransactionController {
 
     // POST http://localhost:8080/api/transactions
     @PostMapping
-    public Transaction create(@RequestBody Transaction transaction) {
+    public Transaction create(@Valid @RequestBody Transaction transaction) {
         return service.addTransaction(transaction);
     }
     
